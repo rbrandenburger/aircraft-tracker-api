@@ -21,20 +21,22 @@ const getBroadcasts = asyncHandler(async (req, res) => {
 // @route POST /api/broadcasts/create
 // @access private
 const createBroadcasts = asyncHandler(async (req, res) => {
-  if(!req.body.typeCode) {
-    res.status(400)
-    throw new Error('Missing broadcasts field')
+  const apiKey = req.header('x-api-key')
+
+  if(apiKey != process.env.RADIO_API_KEY ) {
+    res.status(401)
+    throw new Error("Unauthorized")
   }
 
   const broadcast = await Broadcast.create({
-    typeCode: req.body.typeCode,
-    messageType: req.body.messageType,
+    registrationNumber: req.body.registrationNumber,
+    downlinkFormat: req.body.downlinkFormat,
+    transponderCapability: req.body.transponderCapability,
     payload: req.body.payload
   })
 
   res.status(200).json(broadcast)
 })
-
 
 module.exports = {
   getSnapshot,

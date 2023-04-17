@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
 const broadcastSchema = mongoose.Schema({
-  typeCode: {
+  registrationNumber: {
+    type: String,
+    required: true
+  },
+  downlinkFormat: {
     type: Number,
     required: true
   },
-  messageType: {
+  transponderCapability: {
     type: String,
     required: true
   },
