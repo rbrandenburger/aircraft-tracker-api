@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { getSnapshot, getBroadcasts, createBroadcasts } = require('../controllers/broadcast_controller')
+const controller = require('../controllers/broadcast_controller')
 
-router.get('/snapshot', getSnapshot)
+router.get('/snapshot', controller.getSnapshot)
 
-router.get('/:id', getBroadcasts)
+router.get('/aircraft/:id', controller.getBroadcastsForAircraft)
 
-router.post('/create', createBroadcasts)
+router.post('/create', controller.createBroadcasts)
 
 module.exports = router

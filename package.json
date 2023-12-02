@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon --inspect server.js"
   },
   "author": "Remington Brandenburger",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "node": "16.15.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "standard": "^17.1.0"
   }
 }

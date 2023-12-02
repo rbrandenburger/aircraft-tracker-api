@@ -1,9 +1,10 @@
+require('colors')
+require('dotenv').config()
+
 const express = require('express')
-const colors = require('colors')
-const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
 const connectDB = require('./config/db')
-const {errorHandler} = require('./middleware/error_middleware')
+const { errorHandler } = require('./middleware/error_middleware')
 
 connectDB()
 
@@ -15,8 +16,8 @@ app.use('/api/broadcasts', require('./routes/broadcast_routes'))
 
 app.use(errorHandler)
 
-app.get("/", (req, res) => {
-  res.send("Aircraft Tracker Api")
+app.get('/', (req, res) => {
+  res.send('Aircraft Tracker Api')
 })
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
