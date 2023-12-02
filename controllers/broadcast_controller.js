@@ -22,8 +22,13 @@ const getBroadcastsForAircraft = asyncHandler(async (req, res) => {
     .limit(limit)
     .skip((page - 1) * limit)
 
-  // TODO: Add metadata to response
-  res.status(200).json(broadcasts)
+  const metadata = {
+    page: +page,
+    limit: +limit,
+    count: broadcasts.length
+  }
+
+  res.status(200).json({metadata: metadata, payload: broadcasts})
 })
 
 // @desc Add new broadcasts to the database
