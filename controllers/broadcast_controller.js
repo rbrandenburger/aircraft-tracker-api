@@ -22,7 +22,6 @@ const getBroadcastsForAircraft = asyncHandler(async (req, res) => {
     .limit(limit)
     .skip((page - 1) * limit)
 
-  // TODO: Seralize broadcast
   // TODO: Add metadata to response
   res.status(200).json(broadcasts)
 })
