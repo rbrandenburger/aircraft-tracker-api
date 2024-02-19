@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 
 const broadcastSchema = mongoose.Schema(
   {
-    registrationNumber: {
-      type: String,
+    aircraftId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'aircraft',
       required: true
     },
     downlinkFormat: {
@@ -17,6 +18,10 @@ const broadcastSchema = mongoose.Schema(
     payload: {
       type: {},
       required: false
+    },
+    timestamp: {
+      type: Number,
+      required: true
     }
   }, {
     timestamps: true,
