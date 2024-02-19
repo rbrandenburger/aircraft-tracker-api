@@ -6,6 +6,6 @@ router.get('/snapshot', controller.getSnapshot)
 
 router.get('/aircraft/:id', controller.getBroadcastsForAircraft)
 
-router.post('/create', controller.createBroadcasts)
+router.post('/batch_create', controller.batchCreateBroadcasts)
 
 module.exports = router
